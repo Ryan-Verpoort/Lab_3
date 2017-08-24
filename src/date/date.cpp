@@ -19,9 +19,18 @@ int Date::year() const
 }
 
 Date::Date (int day, Month month, int year){
-    _day=day;
     _month=month;
+    _day=day;
     _year=year;
+    if (day<1 || day > daysInMonth()){
+        throw DayIsInvalid ();
+    }
+         //Assuming that negetive years are used to refer to BC
+     else if (year==0){
+            throw YearIsInvalid ();
+        }
+    
+    
 }
 
 bool Date::isLeapYear() const

@@ -26,6 +26,14 @@ TEST_CASE("Valid Date is initialised correctly") {
 	CHECK(heritage_day.year() == 2000);
 }
 
+TEST_CASE("Day cannot be invalid"){
+    CHECK_THROWS_AS(Date testday(40, Month::September, 2000), DayIsInvalid);
+}
+
+TEST_CASE("Year cannot be invalid"){
+    CHECK_THROWS_AS(Date testYear(12, Month::September, 0),YearIsInvalid);
+}
+
 
 // Exercise 2.2
 // Supply additional tests for the constructor here, which
