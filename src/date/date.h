@@ -27,6 +27,8 @@ class Date
 {
 public:	
     
+    //Constructor;
+    Date (int, Month, int);
 	// return the day of the month
 	int	day () const;
 	// return the month of the year

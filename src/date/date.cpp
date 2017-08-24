@@ -18,7 +18,11 @@ int Date::year() const
 	return _year;
 }
 
-
+Date::Date (int day, Month month, int year){
+    _day=day;
+    _month=month;
+    _year=year;
+}
 
 bool Date::isLeapYear() const
 {
