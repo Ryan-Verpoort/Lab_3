@@ -23,14 +23,21 @@ Date::Date (int day, Month month, int year){
     _day=day;
     _year=year;
     if (day<1 || day > daysInMonth()){
-        throw DayIsInvalid ();
+        throw DayIsInvalid {};
     }
          //Assuming that negetive years are used to refer to BC
      else if (year==0){
-            throw YearIsInvalid ();
-        }
+            throw YearIsInvalid {};
+    }
     
-    
+}
+
+bool Date::operator==(const Date& rhs) const
+{
+	if (_day == rhs.day() && ( _month==rhs.month() && _year==rhs.year() ))
+		return true;
+	else
+		return false;
 }
 
 bool Date::isLeapYear() const

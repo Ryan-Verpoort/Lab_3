@@ -34,6 +34,7 @@ public:
     //Constructor;
     Date (int, Month, int);
 	// return the day of the month
+    bool operator==(const Date& rhs) const;
 	int	day () const;
 	// return the month of the year
 	Month month () const;
