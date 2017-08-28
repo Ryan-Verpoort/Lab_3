@@ -42,7 +42,7 @@ TEST_CASE("Year cannot be invalid"){
 // invalid dates to test.
 
 
- //Exercise 2.3
+//Exercise 2.3
 TEST_CASE("Identical Dates are Equal") {
     Date date_1(1, Month::January, 2000);
     Date date_2(1, Month::January, 2000);
@@ -50,6 +50,28 @@ TEST_CASE("Identical Dates are Equal") {
     CHECK(date_1 == date_2);
 }
 
+
+TEST_CASE("Differenent days are different"){
+    Date date_1(1, Month::January, 2000);
+    Date date_2(2, Month::January, 2000);
+
+    CHECK_FALSE(date_1==date_2);
+}
+
+
+TEST_CASE("Differenent months are different"){
+    Date date_1(1, Month::January, 2000);
+    Date date_2(1, Month::February, 2000);
+
+    CHECK_FALSE(date_1==date_2);
+}
+
+TEST_CASE("Differnent years are different"){
+    Date date_1(1, Month::January, 2000);
+    Date date_2(1, Month::January, 2012);
+
+    CHECK_FALSE(date_1==date_2);
+}
 // Supply at least three additional tests for
 // the equality operator here, to ensure that
 // it is working correctly.
