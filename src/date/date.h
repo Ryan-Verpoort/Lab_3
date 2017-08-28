@@ -29,6 +29,7 @@ class Date
 {
 public:	
 	Date(int day, Month month, int year);
+	Date();
 	// return the day of the month
 	int	day () const;
 	// return the month of the year
@@ -41,14 +42,17 @@ public:
 	bool operator==(const Date& rhs) const;
 	
 	void increaseDate();
+	
+	static void setDefaultDate(int day, Month month, int year);
 
 private:
 	// return the number of days in the _month
 	int	daysInMonth () const;	
-	
+
 	int	_day;
 	Month _month;
 	int	_year;
+	static Date _default;
 
 };
 

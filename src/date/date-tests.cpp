@@ -68,28 +68,40 @@
 // Exercise 2.4
 // Provide tests for a new member function of the Date class
 // which will increase the date by one day.
-
-TEST_CASE("Increase day only") {
-    Date date_1(1, Month::January, 2000);
-    Date date_2(2, Month::January, 2000);
-    date_1.increaseDate();
-    CHECK(date_1 == date_2);
-}
-
-TEST_CASE("Increase to new month") {
-    Date date_1(31, Month::January, 2000);
-    Date date_2(1, Month::February, 2000);
-    date_1.increaseDate();
-    CHECK(date_1 == date_2);
-}
-
-TEST_CASE("Boundary condition"){
-	Date date_1(31, Month::December, 2000);
-	Date date_2(1, Month::January, 2001);
-	date_1.increaseDate();
-	CHECK(date_1 == date_2);
-}
+//
+//TEST_CASE("Increase day only") {
+//    Date date_1(1, Month::January, 2000);
+//    Date date_2(2, Month::January, 2000);
+//    date_1.increaseDate();
+//    CHECK(date_1 == date_2);
+//}
+//
+//TEST_CASE("Increase to new month") {
+//    Date date_1(31, Month::January, 2000);
+//    Date date_2(1, Month::February, 2000);
+//    date_1.increaseDate();
+//    CHECK(date_1 == date_2);
+//}
+//
+//TEST_CASE("Boundary condition"){
+//	Date date_1(31, Month::December, 2000);
+//	Date date_2(1, Month::January, 2001);
+//	date_1.increaseDate();
+//	CHECK(date_1 == date_2);
+//}
 
 // Exercise 2.5
 // Write tests for the new default constructor and the
 // setDefaultDate method.
+
+ TEST_CASE("Change default date for default constructor") {
+        Date date_1;
+        date_1.setDefaultDate(12, Month::January, 2000);
+        Date date_2;
+		Date date_3;
+        printDate(date_1);
+        printDate(date_2);
+		printDate(date_3);
+		CHECK_FALSE(date_1 == date_2);
+		CHECK(date_2 == date_3);
+}
