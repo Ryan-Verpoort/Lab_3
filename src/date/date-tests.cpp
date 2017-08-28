@@ -19,19 +19,18 @@
 //}
 
 // Write code to make this test pass
-TEST_CASE("Valid Date is initialised correctly") {
-	Date heritage_day{24, Month::September, 2000};
-	CHECK(heritage_day.day() == 24);
-	CHECK(heritage_day.month() == Month::September);
-	CHECK(heritage_day.year() == 2000);
+//TEST_CASE("Valid Date is initialised correctly") {
+//	Date heritage_day{24, Month::September, 2000};
+//	CHECK(heritage_day.day() == 24);
+//	CHECK(heritage_day.month() == Month::September);
+//	CHECK(heritage_day.year() == 2000);
+//}
+
+
+ //Exercise 2.2
+TEST_CASE("Invalid Dates throw exception") {	 
+    CHECK_THROWS_AS(Date Test_day(31, Month::September, 2001), InvalidDate);
 }
-
-
-// Exercise 2.2
-// Supply additional tests for the constructor here, which
-// verify that an exception is thrown when an attempt is made
-// to construct an invalid date. Think carefully about which
-// invalid dates to test.
 
 
 // Exercise 2.3

@@ -4,7 +4,14 @@
 #include "date.h"
 
 Date::Date(int day, Month month, int year): _day{ day } , _month{ month } , _year{ year }
-	{}
+	{    if(year < 0) {
+	cout << "Year is invalid" << endl;
+	throw InvalidDate{};
+    } else if(day <= 0 || day > daysInMonth()) {
+	cout << "Day is Invalid" << endl;
+	throw InvalidDate{};
+    }
+	}
 
 int Date::day() const
 {
