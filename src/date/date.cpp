@@ -21,6 +21,20 @@ Date::Date(int day, Month month, int year): _day{ day } , _month{ month } , _yea
 	return false;
 }
 
+	void Date::increaseDate(){
+		int Temp = static_cast<int> (_month);
+		_day++;
+		if(_day>daysInMonth()){
+		_day=1;
+		Temp++;
+		if(Temp == 13){
+			Temp = 1;
+			_year++;
+			}
+		}
+			_month = static_cast<Month> (Temp);
+	}
+
 int Date::day() const
 {
 	return _day;

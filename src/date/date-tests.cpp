@@ -34,41 +34,61 @@
 
 
 // Exercise 2.3
-TEST_CASE("Identical Dates are Equal") {
-    Date date_1(1, Month::January, 2000);
-    Date date_2(1, Month::January, 2000);
-
-    CHECK(date_1 == date_2);
-}
-
-// Supply at least three additional tests for
-// the equality operator here, to ensure that
-// it is working correctly.
-
-TEST_CASE("Days are not equal") {
-    Date date_1(21, Month::January, 2000);
-    Date date_2(1, Month::January, 2000);
-
-    CHECK_FALSE(date_1 == date_2);
-}
-
-TEST_CASE("Months are not equal") {
-    Date date_1(1, Month::January, 2000);
-    Date date_2(1, Month::February, 2000);
-    CHECK_FALSE(date_1 == date_2);
-}
-
-TEST_CASE("Years are not equal") {
-    Date date_1(1, Month::January, 1999);
-    Date date_2(1, Month::January, 2000);
-
-    CHECK_FALSE(date_1 == date_2);
-}
+//TEST_CASE("Identical Dates are Equal") {
+//    Date date_1(1, Month::January, 2000);
+//    Date date_2(1, Month::January, 2000);
+//
+//    CHECK(date_1 == date_2);
+//}
+//
+//// Supply at least three additional tests for
+//// the equality operator here, to ensure that
+//// it is working correctly.
+//
+//TEST_CASE("Days are not equal") {
+//    Date date_1(21, Month::January, 2000);
+//    Date date_2(1, Month::January, 2000);
+//
+//    CHECK_FALSE(date_1 == date_2);
+//}
+//
+//TEST_CASE("Months are not equal") {
+//    Date date_1(1, Month::January, 2000);
+//    Date date_2(1, Month::February, 2000);
+//    CHECK_FALSE(date_1 == date_2);
+//}
+//
+//TEST_CASE("Years are not equal") {
+//    Date date_1(1, Month::January, 1999);
+//    Date date_2(1, Month::January, 2000);
+//
+//    CHECK_FALSE(date_1 == date_2);
+//}
 
 // Exercise 2.4
 // Provide tests for a new member function of the Date class
 // which will increase the date by one day.
 
+TEST_CASE("Increase day only") {
+    Date date_1(1, Month::January, 2000);
+    Date date_2(2, Month::January, 2000);
+    date_1.increaseDate();
+    CHECK(date_1 == date_2);
+}
+
+TEST_CASE("Increase to new month") {
+    Date date_1(31, Month::January, 2000);
+    Date date_2(1, Month::February, 2000);
+    date_1.increaseDate();
+    CHECK(date_1 == date_2);
+}
+
+TEST_CASE("Boundary condition"){
+	Date date_1(31, Month::December, 2000);
+	Date date_2(1, Month::January, 2001);
+	date_1.increaseDate();
+	CHECK(date_1 == date_2);
+}
 
 // Exercise 2.5
 // Write tests for the new default constructor and the
