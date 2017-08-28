@@ -12,6 +12,14 @@ Date::Date(int day, Month month, int year): _day{ day } , _month{ month } , _yea
 	throw InvalidDate{};
     }
 	}
+	
+	bool Date::operator==(const Date& rhs) const
+{
+    if(_day == rhs._day && _month == rhs._month && _year == rhs._year) {
+		return true;
+	    }else
+	return false;
+}
 
 int Date::day() const
 {
