@@ -76,7 +76,12 @@ TEST_CASE("Differnent years are different"){
 // the equality operator here, to ensure that
 // it is working correctly.
 
-
+TEST_CASE("Increasing the day by one"){
+    Date date_1(1, Month::January, 2000);
+    Date date_2(2, Month::January, 2000);
+    date_1.increaseDay();
+    CHECK(date_1==date_2);
+}
 // Exercise 2.4
 // Provide tests for a new member function of the Date class
 // which will increase the date by one day.

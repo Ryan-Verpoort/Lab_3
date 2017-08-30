@@ -32,6 +32,18 @@ Date::Date (int day, Month month, int year){
     
 }
 
+void Date::increaseDay(){
+    _day++;
+     int temp =static_cast<int> (_month);
+    if (_day>daysInMonth()){
+        temp++;
+        if (temp==13){
+            temp=1;
+            _year++;
+        }
+    }
+}
+
 bool Date::operator==(const Date& rhs) const
 {
 	if (_day == rhs.day() && ( _month==rhs.month() && _year==rhs.year() ))

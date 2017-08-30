@@ -42,7 +42,7 @@ public:
 	int year () const;
 	// return true if it is a leap-year, false if not
 	bool isLeapYear () const;	
-
+    void increaseDay();
 private:
 	// return the number of days in the _month
 	int	daysInMonth () const;	
